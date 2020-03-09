@@ -16,7 +16,7 @@ apply plugin:   'eclipse'
 apply plugin:   'org.springframework.boot'
 apply plugin:   'io.spring.dependency-management'
 
-group 'com.jojoldu.book'
+group 'com.com.jojoldu.book'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -26,7 +26,15 @@ repositories {
 }
 
 dependencies {
+    //스프링 부트
     compile('org.springframework.boot:spring-boot-starter-web')
-
+    //롬복
+    compileOnly "org.projectlombok:lombok"
+    annotationProcessor "org.projectlombok:lombok"
+    //jpa h2
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.h2database:h2')
+    //TEST
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
