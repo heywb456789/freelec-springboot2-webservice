@@ -21,11 +21,15 @@ public class PostsSaveRequestDto {
     @Builder
     public PostsSaveRequestDto(String title,String content, String author){
         this.title = title;
-        this.title = content;
-        this.title = author;
+        this.content = content;
+        this.author = author;
     }
     //TODO : Entity 클래스란 ??  Entity 클래스를 Request와 Response 클래스로 사용해서는 안된다.
     public Posts toEntity(){
-        return Posts.builder().title(title).content(content).author(author).build();
+        return Posts.builder()
+                .title(title)
+                .content(content)
+                .author(author)
+                .build();
     }
 }
