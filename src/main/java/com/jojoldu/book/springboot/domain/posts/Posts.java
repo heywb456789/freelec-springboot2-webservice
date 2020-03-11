@@ -1,5 +1,6 @@
 package com.jojoldu.book.springboot.domain.posts;
 
+import com.jojoldu.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor // 기본생성자 자동추가 Public Posts(){}와 같다
 @Entity //테이블과 링크될 클래스임을 나타낸다 , 기본값으로 클래스의 카멜케이스 이름을 언더스코어 네이및 으로 테이블을 매칭
-public class Posts {
+public class Posts extends BaseTimeEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //springboot2.0 부터 autoIncreasement 사용 위해 
