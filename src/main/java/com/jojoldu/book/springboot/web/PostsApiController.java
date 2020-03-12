@@ -16,9 +16,15 @@ public class PostsApiController {
     public Long save (@RequestBody PostsSaveRequestDto requestDto){
         return postsService.save(requestDto);
     }
-
+    //TODO : 테스트 코드 케이스 만들기
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsSaveRequestDto requestDto){
         return postsService.update(requestDto,id);
+    }
+
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id){
+        postsService.delete(id);
+        return id;
     }
 }

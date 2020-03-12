@@ -36,6 +36,9 @@ dependencies {
     compile('com.h2database:h2')
     //mustache
     compile('org.springframework.boot:spring-boot-starter-mustache')
+
+    //빌드없이 정적자원 적용하기
+    compile('org.springframework.boot:spring-boot-devtools')
     //TEST
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
