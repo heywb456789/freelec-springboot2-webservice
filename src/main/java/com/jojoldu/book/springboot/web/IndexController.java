@@ -1,5 +1,6 @@
 package com.jojoldu.book.springboot.web;
 
+import com.jojoldu.book.springboot.config.auth.LoginUser;
 import com.jojoldu.book.springboot.config.auth.dto.SessionUser;
 import com.jojoldu.book.springboot.service.posts.PostsService;
 import com.jojoldu.book.springboot.web.dto.PostsResponseDto;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
@@ -27,11 +29,13 @@ public class IndexController {
      * ViewResolver가 처리하게 된다.
      */
     @GetMapping("/")
-    public String index(Model model){ //서버 템플릿 엔진에서 사용할 수 있는 객체를 저장한다. 여기서는 postsService.findAllDesc() 가져온 결과를 index.mustache에 넘긴다.
+    public String index(Model model, @LoginUser SessionUser user){ //서버 템플릿 엔진에서 사용할 수 있는 객체를 저장한다. 여기서는 postsService.findAllDesc() 가져온 결과를 index.mustache에 넘긴다.
         model.addAttribute("posts",postsService.findAllDesc());
 
         //google Oauth2 로직 시작
-        SessionUser user = (SessionUser)httpSession.getAttribute("user");
+        //@LoginUser를 통해 생략이 된다.
+        //기존에 (SessionUser)httpSession.getAttribute("user") 통해 가져오던 값이 어느 컨트롤러에서 @LoginUser로 값을 가져올수 있게 되었다.
+        //SessionUser user = (SessionUser)httpSession.getAttribute("user");
 
         if(user != null){
             model.addAttribute("userName",user.getName());
