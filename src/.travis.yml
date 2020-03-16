@@ -12,7 +12,7 @@ cache:
     - '$HOME/.gradle'
 script: "./gradlew clean build"
 
-#CI 실핼 완료시 메일로 알람
+#CI 실핼 완료시 메일로 알람설정하기
 notifications:
   email:
     recipients:
