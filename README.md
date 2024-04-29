@@ -1,4 +1,5 @@
-AWS 
-Springboot 2 
-Zero-downtime Deployment
-Simple Example
+1.AWS   
+2.Springboot 2   
+3.Zero-downtime Deployment  
+  
+Simple Example  
